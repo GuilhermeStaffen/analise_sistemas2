@@ -13,6 +13,7 @@ public class Biblioteca {
     
     // REMOVEMOS O MÉTODO calcularMulta DESTA CLASSE, ADICIONANDO NA CLASSE EMPRESTIMO
 
+    // ADAPTAMOS O MÉTODO ABAIXO PARA CONSULTAR O CALCULO DA MULTA NA CLASSE EMPRESTIMO
     public void exibirMultas() {
         for(Emprestimo emprestimo: emprestimos) {
             double multa = emprestimo.calcularMulta();
