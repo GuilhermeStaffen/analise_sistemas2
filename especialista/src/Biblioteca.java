@@ -10,7 +10,8 @@ public class Biblioteca {
     public void registrarEmprestimo(Emprestimo emprestimo) {
         emprestimos.add(emprestimo);
     }
-    // Método mal projetado que calcula a multa diretamente
+    
+    // REMOVEMOS O MÉTODO calcularMulta DESTA CLASSE, ADICIONANDO NA CLASSE EMPRESTIMO
 
     public void exibirMultas() {
         for(Emprestimo emprestimo: emprestimos) {
