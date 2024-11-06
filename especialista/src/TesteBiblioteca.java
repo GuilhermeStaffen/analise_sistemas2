@@ -8,6 +8,8 @@ public class TesteBiblioteca {
         Livro livro1 = new Livro("O Senhor dos Anéis");
         Livro livro2 = new Livro("1984");
 
+        //NÃO ERA UMA NECESSIDADE DIRETA DO PADRÃO ESPECIALISTA, MAS APLICAMOS A MESMA SOLUÇÃO DO PADRÃO CRIADOR. 
+        //ADICIONANDO A CRIAÇÃO DO OBJETO EMPRESTIMO NESTA CLASSE
         Emprestimo emprestimo1 = new Emprestimo(livro1, "João", LocalDate.now().minusDays(10), LocalDate.now().minusDays(5));
         Emprestimo emprestimo2 = new Emprestimo(livro2, "Maria", LocalDate.now().minusDays(30), LocalDate.now().minusDays(10));
         biblioteca.registrarEmprestimo(emprestimo1);
