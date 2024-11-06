@@ -14,6 +14,8 @@ public class Emprestimo {
         this.dataDeDevolucao = dataDeDevolucao;
     }
 
+    //Entendemos que a classe EMPRESTIMO era a classe que mais tinha informações sobre o emprestimo, logo é quem seria a 
+    // classe mais especializada para controlar o calculo da multa. Sendo assim, inserimos essa funcionalidade aqui.
     public double calcularMulta() {
         long diasAtraso = ChronoUnit.DAYS.between(this.getDataDeDevolucao(), LocalDate.now());
         double multaPorDia = 2.0;
