@@ -7,6 +7,8 @@ public class Biblioteca {
         this.emprestimos = new ArrayList<>();
     }
 
+    //Removida a necessidade de instanciar o objeto "EMPRESTIMO". Agora o método recebe o objeto emprestimo que é criado pela classe TesteBiblioteca.
+    //Na nova implementação, o método registrarEmprestimo apenas controla a lista dos emprestimos em aberto.
     public void registrarEmprestimo(Emprestimo emprestimo)
     {
         emprestimos.add(emprestimo);

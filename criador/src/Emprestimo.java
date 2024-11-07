@@ -1,4 +1,5 @@
 // Classe que representa um empréstimo de livro
+// NÃO HOUVE ALTERAÇÃO NA CLASSE PARA SOLUÇÃO DO PROBLEMA
 public class Emprestimo {
     private Livro livro;
     private String nomeDoUsuario;
