@@ -2,7 +2,6 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-// Classe Biblioteca usando o adaptador
 
 public class Biblioteca {
 
