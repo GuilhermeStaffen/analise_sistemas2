@@ -1,36 +1,31 @@
-// Classe mal projetada que gerencia a biblioteca
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+// Classe Biblioteca usando o adaptador
 
 public class Biblioteca {
 
     private List<Emprestimo> emprestimos;
-    private ServicoPagamentoExterno servicoPagamento; // Acoplamento direto
+    private IPagamento pagamentoMulta;
 
-    public Biblioteca() {
+    public Biblioteca(IPagamento pagamentoMulta) {
         this.emprestimos = new ArrayList<>();
-        this.servicoPagamento = new ServicoPagamentoExterno();
+        this.pagamentoMulta = pagamentoMulta;
     }
 
-    // Registra um empréstimo
-    public void registrarEmprestimo(Livro livro, String nomeDoUsuario,
-            LocalDate dataDeDevolucao) {
-        Emprestimo emprestimo = new Emprestimo(livro, nomeDoUsuario,
-                dataDeDevolucao);
+    public void registrarEmprestimo(Livro livro, String nomeDoUsuario,LocalDate dataDeDevolucao) {
+        Emprestimo emprestimo = new Emprestimo(livro, nomeDoUsuario,dataDeDevolucao);
         emprestimos.add(emprestimo);
         System.out.println("Empréstimo registrado: Livro \"" + livro.getTitulo() + "\" para " + nomeDoUsuario);
     }
 
-    // Processa as multas e paga através do serviço de pagamento externo
     public void processarPagamentosDeMultas() {
         for (Emprestimo emprestimo : emprestimos) {
             if (!emprestimo.isDevolvido()
                     && emprestimo.calcularDiasAtraso() > 0) {
                 double multa = emprestimo.calcularMulta();
-                // Interface incompatível com o sistema da biblioteca
-                servicoPagamento.pagarFatura(emprestimo.getNomeDoUsuario(), multa);
+                pagamentoMulta.efetuarPagamento(emprestimo.getNomeDoUsuario(), multa);
             }
         }
     }
