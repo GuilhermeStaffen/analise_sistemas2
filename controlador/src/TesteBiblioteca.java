@@ -5,7 +5,8 @@ import java.util.List;
 public class TesteBiblioteca {
     public static void main(String[] args) {
         BibliotecaController controller = new BibliotecaController();
-
+        //REMOVEMOS TODOS OS MÉTODOS OU MANIPULAÇÕES DIRETAS EM LIVRO OU EMPRESTIMO
+        //FAZENDO TUDO UTILIZANDO-SE DA CONTROLLER
 
         // Funcionalidade 1: Registrar empréstimos
         controller.registrarEmprestimo("Livro1Teste", "João", LocalDate.now().minusDays(5));

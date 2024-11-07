@@ -3,6 +3,8 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 public class BibliotecaController {
+
+    //CRIAMOS UMA CONTROLLER PARA A BIBLIOTECA, QUE EFETUA AS MANIPULAÇÕES NECESSÁRIAS
     private Biblioteca biblioteca;
 
     public BibliotecaController() {
