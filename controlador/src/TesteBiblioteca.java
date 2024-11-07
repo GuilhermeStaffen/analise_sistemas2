@@ -5,12 +5,11 @@ import java.util.List;
 public class TesteBiblioteca {
     public static void main(String[] args) {
         BibliotecaController controller = new BibliotecaController();
-        Livro livro1 = new Livro("O Senhor dos Anéis");
-        Livro livro2 = new Livro("1984");
+
 
         // Funcionalidade 1: Registrar empréstimos
-        controller.registrarEmprestimo(livro1, "João", LocalDate.now().minusDays(5));
-        controller.registrarEmprestimo(livro2, "Maria", LocalDate.now().minusDays(10));
+        controller.registrarEmprestimo("Livro1Teste", "João", LocalDate.now().minusDays(5));
+        controller.registrarEmprestimo("Livro2Teste", "Maria", LocalDate.now().minusDays(10));
 
         // Funcionalidade 3: Exibir multas
         controller.exibirMultas();

@@ -9,7 +9,8 @@ public class BibliotecaController {
         biblioteca = new Biblioteca();
     }
 
-    public void registrarEmprestimo(Livro livro, String nomeDoUsuario, LocalDate dataEmprestimo) {
+    public void registrarEmprestimo(String nomeLivro, String nomeDoUsuario, LocalDate dataEmprestimo) {
+        Livro livro = new Livro(nomeLivro);
         biblioteca.registrarEmprestimo(livro, nomeDoUsuario, dataEmprestimo);
     }
 
