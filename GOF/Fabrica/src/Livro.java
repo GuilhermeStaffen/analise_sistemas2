@@ -1,6 +1,7 @@
+import java.util.ArrayList;
+import java.util.List;
 
-public class Livro {
-
+public class Livro implements ITipoMidia {
     private String titulo;
     private String autor;
 
@@ -9,16 +10,13 @@ public class Livro {
         this.autor = autor;
     }
 
+    @Override
     public String getTitulo() {
         return titulo;
     }
 
-    public String getAutor() {
-        return autor;
-    }
-
     @Override
-    public String toString() {
-        return "Livro: " + titulo + ", Autor: " + autor;
+    public void exibirDetalhes() {
+        System.out.println("Livro: " + titulo + ", Autor: " + autor);
     }
 }

@@ -1,31 +1,22 @@
-
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Biblioteca {
+    private List<ITipoMidia> midias;
 
-    private List<Emprestimo> emprestimos;
-    private IPagamento pagamentoMulta;
-
-    public Biblioteca(IPagamento pagamentoMulta) {
-        this.emprestimos = new ArrayList<>();
-        this.pagamentoMulta = pagamentoMulta;
+    public Biblioteca() {
+        this.midias = new ArrayList<>();
     }
 
-    public void registrarEmprestimo(Livro livro, String nomeDoUsuario,LocalDate dataDeDevolucao) {
-        Emprestimo emprestimo = new Emprestimo(livro, nomeDoUsuario,dataDeDevolucao);
-        emprestimos.add(emprestimo);
-        System.out.println("Empréstimo registrado: Livro \"" + livro.getTitulo() + "\" para " + nomeDoUsuario);
+    public void adicionarMidia(IMidiaFactory fabrica, String titulo, String detalhe) {
+        ITipoMidia midia = fabrica.criarMidia(titulo, detalhe);
+        midias.add(midia);
+        System.out.println("Mídia adicionada: " + midia.getTitulo());
     }
 
-    public void processarPagamentosDeMultas() {
-        for (Emprestimo emprestimo : emprestimos) {
-            if (!emprestimo.isDevolvido()
-                    && emprestimo.calcularDiasAtraso() > 0) {
-                double multa = emprestimo.calcularMulta();
-                pagamentoMulta.efetuarPagamento(emprestimo.getNomeDoUsuario(), multa);
-            }
+    public void exibirMidias() {
+        for (ITipoMidia midia : midias) {
+            midia.exibirDetalhes();
         }
     }
 }

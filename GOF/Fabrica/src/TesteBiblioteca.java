@@ -1,19 +1,17 @@
 
-import java.time.LocalDate;
-
 public class TesteBiblioteca {
-
-    public static void main(String[] args) {
-
-        ServicoPagamentoExterno servicoExterno = new ServicoPagamentoExterno();
-        IPagamento adaptadorPagamento = new AdaptadorPagamento(servicoExterno);
-
-        Biblioteca biblioteca = new Biblioteca(adaptadorPagamento);
-        Livro livro1 = new Livro("O Senhor dos Anéis", "J.R.R. Tolkien");
-        Livro livro2 = new Livro("1984", "George Orwell");
-        biblioteca.registrarEmprestimo(livro1, "João",LocalDate.now().minusDays(5));
-        biblioteca.registrarEmprestimo(livro2, "Maria",LocalDate.now().minusDays(10));
-        System.out.println("\nProcessando pagamentos de multas:");
-        biblioteca.processarPagamentosDeMultas();
+    public TesteBiblioteca() {
     }
-}
+ 
+    public static void main(String[] var0) {
+       Biblioteca var1 = new Biblioteca();
+       LivrosFactory var2 = new LivrosFactory();
+       RevistaFactory var3 = new RevistaFactory();
+       var1.adicionarMidia(var2, "Teste Livro", "abbb");
+       var1.adicionarMidia(var3, "Teste Revista", "111");
+       var1.adicionarMidia(var3, "Teste Revista 2", "222");
+       System.out.println("\n Midias na biblioteca:");
+       var1.exibirMidias();
+    }
+ }
+ 
